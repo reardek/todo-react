@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function withDataFetching(WrapperComponent) {
-    return class extends React.Component {
+    class WithDataFetching extends React.Component {
         constructor(props) {
             super(props)
             this.state = {
@@ -42,5 +42,7 @@ export default function withDataFetching(WrapperComponent) {
                     />
             );
         }
-    }
+    };
+    WithDataFetching.displayName = `WithDataFetching(${WrapperComponent.name})`;
+    return WithDataFetching;
 }
